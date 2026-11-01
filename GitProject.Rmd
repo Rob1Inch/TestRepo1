@@ -1,0 +1,36 @@
+---
+title: "GitIntro"
+author: "Rob Miller"
+date: "2026-10-31"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, libraries}
+#install.packages("usethis")
+
+library(usethis)
+use_git_config(user.name = "Rob1Inch", user.email = "rmiller7145@gmail.com")
+```
+
+```{r, gitconfig}
+usethis::git_default_branch_configure()
+```
+
+```{r, token}
+usethis::create_github_token()
+gitcreds::gitcreds_set()
+#Sys.which("git")
+```
+
+```{r, remotes}
+usethis::git_remotes()
+usethis::use_git_remote("origin",
+                        "git@github.com:jennybc/happy-git-with-r.git",
+                        overwrite = TRUE)
+usethis::git_remotes()
+
+```
